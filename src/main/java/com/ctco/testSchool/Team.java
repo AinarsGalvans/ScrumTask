@@ -29,6 +29,11 @@ public class Team {
         return  capacity>=0;
     }
 
+    /*
+    Return true team has enough capacity to do both development ant testing (note tht testers only do testing and developers only do development)
+    This method do not support cross-functional team members capable doing both.
+     */
+
     public boolean canDeliverQuality() {
         return members.stream()
                 .filter(item -> item.testingSkills)
@@ -36,6 +41,9 @@ public class Team {
                 .sum() >=  backlog.stream().mapToDouble(s->s.testPoints).sum();
     }
 
+    /*
+    Return true if developers could do the development part, ignoring the fact that there could be not enough testers
+     */
     public boolean canDeliver() {
         return members.stream()
                 .filter(item -> item.codinSkills)
