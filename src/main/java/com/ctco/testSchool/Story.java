@@ -5,5 +5,5 @@ public class Story {
     int storyPoints;
     int testPoints;
     type type=null;
-    enum type {DEV, TEST, DB, BA}
+    public enum type {DEV, TEST, DB, BA}
 }

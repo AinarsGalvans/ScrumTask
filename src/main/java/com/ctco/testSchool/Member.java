@@ -5,11 +5,13 @@ public class Member {
     public Boolean codinSkills;
     public Boolean testingSkills;
 
+    public enum type {DEV, TEST}
+
     public Member() {
     }
 
-    public Member(boolean developer) {
-        codinSkills = developer;
-        testingSkills = !developer;
+    public Member(type type) {
+        codinSkills = type == Member.type.DEV;
+        testingSkills = type == Member.type.TEST;
     }
 }
